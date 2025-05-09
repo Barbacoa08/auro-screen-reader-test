@@ -35,7 +35,11 @@ export const App = () => {
 				<h2>Auro Popover test</h2>
 
 				<auro-popover>
-					<span>Longer explanation text that gives a broader explanation.</span>
+					<span>
+						This content is not annouced to the screen reader. Nor is it
+						find-able without the mouse. Thus, this component does not seem to
+						be accessible.
+					</span>
 
 					<auro-button slot="trigger">Small text</auro-button>
 				</auro-popover>
@@ -72,38 +76,28 @@ export const App = () => {
 				</div>
 
 				<auro-dialog open={dialogOpen} modal>
-					<span slot="header">Default Dialog</span>
+					<span slot="header">
+						Dialog with <code>modal</code> set (
+						<a href="https://github.com/Barbacoa08/auro-screen-reader-test/blob/main/src/App.jsx">
+							link to source
+						</a>
+						)
+					</span>
 
 					<div slot="content">
-						<p>
-							When traveling on Alaska Airlines flights, Alaska Airlines checked
-							baggage fees may apply. See{" "}
-							<auro-hyperlink
-								href="https://www.alaskaair.com/bagrules"
-								target="_blank"
-							>
-								alaskaair.com/bagrules
-							</auro-hyperlink>{" "}
-							for our rules. For itineraries that include other airlines, their
-							checked baggage fees may apply, as displayed on their websites.
-						</p>
-						<p>
-							Baggage rules and fees will be based on the specific itinerary
-							chosen. The applicable first and second bag fees will be displayed
-							after you have added flights to the cart.
-						</p>
-						<auro-header level="3" display="500">
-							Before checking your bags, remember to:
-						</auro-header>
-						<ul>
-							<li>Caerphilly croque monsieur fondue</li>
+						<p>There are a few issues here.</p>
+
+						<ol>
 							<li>
-								Taleggio goat mascarpone cow manchego cheese and wine emmental
-								cheese strings
+								Having <code>modal</code> prop set does not stop from tabbing
+								outside of the dialog.
 							</li>
-							<li>Cheddar cheese and biscuits chalk and cheese</li>
-							<li>Camembert de normandie stinking bishop bavarian bergkase</li>
-						</ul>
+							<li>
+								The "X" (close) button on the top cannot be connected to the
+								appropriate close command. If you click it, the "open" button
+								will stop working.
+							</li>
+						</ol>
 					</div>
 
 					<div slot="footer">
