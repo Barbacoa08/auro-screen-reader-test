@@ -18,28 +18,10 @@ export const App = () => {
 			<h1>Auro Screen Reader test</h1>
 
 			<section>
-				<h2>Auro Alert test</h2>
-
-				<auro-button onClick={() => setAlertVisible(!alertVisible)}>
-					Toggle success alert message
-				</auro-button>
-
-				{alertVisible && (
-					<auro-alert type="success">
-						<p>Success message has been shown!</p>
-					</auro-alert>
-				)}
-			</section>
-
-			<section>
 				<h2>Auro Popover test</h2>
 
 				<auro-popover>
-					<span>
-						This content is not annouced to the screen reader. Nor is it
-						find-able without the mouse. Thus, this component does not seem to
-						be accessible.
-					</span>
+					<span>This content is not annouced to the screen reader.</span>
 
 					<auro-button slot="trigger">Small text</auro-button>
 				</auro-popover>
@@ -47,6 +29,11 @@ export const App = () => {
 
 			<section>
 				<h2>Auro Dropdown test</h2>
+
+				<p>
+					The dropdown does not announce it contents, nor even that it has
+					opened. It is thus not accessible.
+				</p>
 
 				<auro-dropdown>
 					<auro-button
@@ -98,6 +85,8 @@ export const App = () => {
 								will stop working.
 							</li>
 						</ol>
+
+						<p>Thus, this dialog modal is not accessible.</p>
 					</div>
 
 					<div slot="footer">
