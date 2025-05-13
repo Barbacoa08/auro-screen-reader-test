@@ -4,13 +4,14 @@
 	"version": "0.0.0",
 	"type": "module",
 	"scripts": {
-		"dev": "vite",
+		"dev": "vite --open",
 		"build": "vite build",
 		"lint": "eslint .",
 		"preview": "vite preview"
 	},
 	"dependencies": {
 		"@aurodesignsystem/auro-alert": "4.1.0",
+		"@aurodesignsystem/auro-avatar": "6.1.0",
 		"@aurodesignsystem/auro-button": "9.3.3",
 		"@aurodesignsystem/auro-dialog": "3.1.1",
 		"@aurodesignsystem/auro-formkit": "3.2.8",

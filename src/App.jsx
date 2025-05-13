@@ -2,12 +2,14 @@ import { useState } from "react";
 
 import "./App.css";
 import "@aurodesignsystem/auro-alert";
+import "@aurodesignsystem/auro-avatar";
 import "@aurodesignsystem/auro-button";
 import "@aurodesignsystem/auro-dialog";
 import "@aurodesignsystem/auro-formkit/auro-dropdown";
 import "@aurodesignsystem/auro-icon";
 import "@aurodesignsystem/auro-popover";
 import "@aurodesignsystem/design-tokens/dist/alaska/CSSCustomProperties--alaska.css";
+import "@aurodesignsystem/design-tokens/dist/auro-classic/CSSCustomProperties.css";
 
 export const App = () => {
 	const [alertVisible, setAlertVisible] = useState(false);
@@ -57,6 +59,7 @@ export const App = () => {
 				<h2>Auro Dialog test</h2>
 
 				<div>
+					{/* biome-ignore lint/a11y/useKeyWithClickEvents: Auro teams issue */}
 					<auro-button onClick={() => setDialogOpen(true)}>
 						Open default dialog
 					</auro-button>
@@ -90,11 +93,72 @@ export const App = () => {
 					</div>
 
 					<div slot="footer">
+						{/* biome-ignore lint/a11y/useKeyWithClickEvents: Auro teams issue */}
 						<auro-button secondary onClick={() => setDialogOpen(false)}>
 							Close
 						</auro-button>
 					</div>
 				</auro-dialog>
+			</section>
+
+			<section>
+				<h2>Avatar sizing issue</h2>
+
+				<p>
+					Avatar with <code>type="sm"</code> does not show.
+				</p>
+				<p>Avatars do not show unless the deprecated CSS file is imported:</p>
+				<p>
+					(
+					<code>
+						import
+						"@aurodesignsystem/design-tokens/dist/auro-classic/CSSCustomProperties.css";
+					</code>
+					)
+				</p>
+
+				<div>
+					<span>
+						<code>className="my-avatar"</code> works as expected
+					</span>
+
+					<auro-avatar
+						tail="AS"
+						className="my-avatar"
+						aria-label="alaska airlines airplane tail logo"
+					/>
+				</div>
+
+				<div>
+					<span>
+						<code>type="sm"</code> <b>does not</b> work as expected (does not
+						show)
+					</span>
+					<auro-avatar
+						tail="AS"
+						type="sm"
+						aria-label="alaska airlines airplane tail logo"
+					/>
+				</div>
+
+				<div>
+					<span>
+						<code>type="md"</code> works as expected
+					</span>
+					<auro-avatar
+						tail="AS"
+						type="md"
+						aria-label="alaska airlines airplane tail logo"
+					/>
+				</div>
+
+				<div>
+					<span>type not set (so large) works as expected</span>
+					<auro-avatar
+						tail="AS"
+						aria-label="alaska airlines airplane tail logo"
+					/>
+				</div>
 			</section>
 		</main>
 	);
